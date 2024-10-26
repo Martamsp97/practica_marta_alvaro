@@ -28,9 +28,72 @@ body {
 }
 
 :root {
-    --primary-color: #E9F5DD;
+    --primary-color: #e9f5db;
     --secondary-color: #718355;
     --title-font: "Unbounded", sans-serif;
     --text-content: #;
     --gap: 1rem;
+}
+
+.container {
+    padding: 20px 30px;
+}
+
+/*  Css del header*/
+header {
+    /* background-color: var(--secondary-color); */
+
+    .menu {
+
+        color: var(--secondary-color);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        div {
+            padding: 20px 0;
+
+            a {
+                cursor: pointer;
+
+                figure {
+                    width: 50px;
+                    height: 50px
+                }
+            }
+        }
+
+        nav {
+            width: 20%;
+            align-content: center;
+
+            ul {
+
+                display: flex;
+                justify-content: space-between;
+
+                li {
+
+                    a {
+                        color: var(--secondary-color);
+                        cursor: pointer;
+
+                        &:hover {
+                            border-bottom: var(--secondary-color);
+                        }
+                    }
+                }
+            }
+        }
+
+        .button {
+            text-decoration: none;
+            display: block;
+            color: var(--secondary-color);
+            border: none;
+            padding: 16px;
+            cursor: pointer;
+            align-content: center;
+        }
+    }
 }
