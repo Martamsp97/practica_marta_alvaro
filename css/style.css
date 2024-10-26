@@ -1,0 +1,35 @@
+@import url(reset.css);
+
+/* Fuentes importadas */
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+/* Importacion Iconos */
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css');
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+}
+
+:root {
+    --primary-color: var(--primary-color);
+    --secondary-color: var(--secondary-color);
+    --title-font: "Unbounded", sans-serif;
+    --text-content: #;
+    --gap: 1rem;
+}
