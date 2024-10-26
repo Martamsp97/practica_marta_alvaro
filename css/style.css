@@ -42,6 +42,9 @@ body {
 /*  Css del header*/
 header {
     /* background-color: var(--secondary-color); */
+    position: fixed;
+
+    width: 90%;
 
     .menu {
 
@@ -96,4 +99,11 @@ header {
             align-content: center;
         }
     }
+}
+
+.hero {
+    background-image: url("../images/fondo1080.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 110vh;
 }
