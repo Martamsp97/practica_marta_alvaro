@@ -50,8 +50,9 @@ body {
 header {
     /* background-color: var(--secondary-color); */
     position: sticky;
-
     width: 100%;
+    background-color: white;
+    mask-image: linear-gradient(black 80%, transparent);
 
     .menu {
 
@@ -109,14 +110,14 @@ header {
 }
 
 .hero {
-    background-image: url("../images/fondo1080.jpg");
-    background-size: cover;
+    background-image: url("../images/fondoraw.jpg");
+    background-size: contain;
     background-repeat: no-repeat;
     height: 56.25rem;
-    mask-image: linear-gradient(black 80%, transparent);
+    mask-image: linear-gradient(rgb(255, 255, 255) 80%, transparent);
     align-content: center;
     width: 100vw;
-    background-position: right;
+    background-position: center;
 }
 
 h1 {
@@ -125,13 +126,17 @@ h1 {
     margin-bottom: 2rem;
     letter-spacing: 18px;
 
-    span {
-        color: var(--secondary-color);
-    }
+
 }
 
 h5 {
+    padding-left: 2px;
+    letter-spacing: 1px;
     font-size: 2rem;
+}
+
+span {
+    color: white;
 }
 
 footer {
