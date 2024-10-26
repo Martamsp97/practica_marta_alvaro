@@ -109,7 +109,7 @@ header {
 }
 
 .hero {
-    background-image: url("../images/fondo1080.jpg");
+    background-image: url("../images/fondo2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 56.25rem;
@@ -124,9 +124,10 @@ h1 {
     font-size: 6rem;
     margin-bottom: 2rem;
     letter-spacing: 18px;
+    
 
     span {
-        color: var(--secondary-color);
+        color: var(--primary-color);
     }
 }
 
