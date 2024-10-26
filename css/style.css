@@ -109,22 +109,27 @@ header {
 }
 
 .hero {
-    background-image: url("../images/fondo2.jpg");
+    background-image: url("../images/fondoraw.png");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 56.25rem;
+    height: 60.25rem;
     mask-image: linear-gradient(black 80%, transparent);
-    align-content: center;
+    /* align-content: center; */
     width: 100vw;
-    background-position: right;
+    background-position: top;
+    /*    mask-image: linear-gradient(to bottom, transparent, black); */
+    /* -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent); */
+
 }
 
 h1 {
     font-family: var(--title-font);
     font-size: 6rem;
-    margin-bottom: 2rem;
+    padding-top: 20rem;
+    margin: 2rem 0;
     letter-spacing: 18px;
-    
+
 
     span {
         color: var(--primary-color);
@@ -133,6 +138,10 @@ h1 {
 
 h5 {
     font-size: 2rem;
+
+    span {
+        color: var(--primary-color);
+    }
 }
 
 footer {
