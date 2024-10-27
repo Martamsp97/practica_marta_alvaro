@@ -238,5 +238,21 @@ const plantas = [
     descripcion: "Planta de hojas grandes y decorativas, excelente para interiores.",
     precio: 18.99,
     stock: 9
+  },
+  {
+    id: 31,
+    nombre: "Poinsettia",
+    imagen: "https://i.pinimg.com/564x/d7/30/1a/d7301a8e791d5df853e1d0940599d47e.jpg",
+    descripcion: "Planta de flores rojas, ideal para decorar en Navidad.",
+    precio: 15.99,
+    stock: 10
+  },
+  {
+    id: 32,
+    nombre: "Canna Lily",
+    imagen: "https://i.pinimg.com/564x/12/29/a0/1229a0df5a993bc61e65ac9202d22aa4.jpg",
+    descripcion: "Planta perenne con flores vibrantes, ideal para jardines.",
+    precio: 11.50,
+    stock: 5
   }
 ];

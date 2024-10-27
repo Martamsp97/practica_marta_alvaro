@@ -1,0 +1,62 @@
+button {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: none;
+    cursor: pointer;
+}
+
+#carrito {
+    position: fixed;
+    top: 130px;
+    right: 0;
+    width: 30%;
+    background-color: rgba(11, 69, 9, 0.279);
+    display: none;   
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    /* Efecto de desenfoque */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    z-index: 1;
+    height: auto;
+    color: var(--primary-color);
+
+    .topcarro {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+
+        h2 {
+            font-family: var(--title-font);
+
+        }
+
+        button {
+
+
+            font-weight: 700;
+
+        }
+    }
+
+    ul {
+        h3 {
+            font-weight: 700;
+        }
+
+        .cantidad {
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+            align-items: center;
+
+            div {
+                button {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+
+}

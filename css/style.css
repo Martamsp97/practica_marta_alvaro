@@ -1,5 +1,6 @@
 @import url(reset.css);
 @import url(plants.css);
+@import url(carrito.css);
 @import url(media.css);
 
 /* Fuentes importadas */
@@ -24,9 +25,7 @@ img {
     display: block;
 }
 
-a {
-    text-decoration: none;
-}
+
 
 body {
     font-family: "DM Sans", sans-serif;
@@ -40,8 +39,12 @@ body {
     --gap: 1rem;
 }
 
+a {
+    text-decoration: none;
+}
+
 .container {
-    padding: 1.25rem 1.875rem;
+    padding: 1.25rem 3rem;
     max-width: 87.5rem;
     margin: 0 auto;
 }
@@ -89,9 +92,7 @@ header {
                         color: var(--secondary-color);
                         cursor: pointer;
 
-                        &:hover {
-                            border-bottom: var(--secondary-color);
-                        }
+
                     }
                 }
             }
@@ -127,7 +128,7 @@ header {
 h1 {
     font-family: var(--title-font);
     font-size: 6rem;
-    padding-top: 20rem;
+    padding-top: 15rem;
     margin: 2rem 0;
     letter-spacing: 18px;
 
@@ -161,4 +162,30 @@ footer {
         }
     }
 
+}
+
+nav a,
+footer a {
+    text-decoration: none;
+    position: relative;
+    color: var(--secondary-color);
+    display: inline-block;
+
+}
+
+nav a::after,
+footer a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+footer a:hover::after {
+    width: 100%;
 }
