@@ -24,9 +24,7 @@ img {
     display: block;
 }
 
-a {
-    text-decoration: none;
-}
+
 
 body {
     font-family: "DM Sans", sans-serif;
@@ -38,6 +36,10 @@ body {
     --title-font: "Unbounded", sans-serif;
     --text-content: #;
     --gap: 1rem;
+}
+
+a {
+    text-decoration: none;
 }
 
 .container {
@@ -88,9 +90,7 @@ header {
                         color: var(--secondary-color);
                         cursor: pointer;
 
-                        &:hover {
-                            border-bottom: var(--secondary-color);
-                        }
+
                     }
                 }
             }
@@ -154,4 +154,30 @@ footer {
         }
     }
 
+}
+
+nav a,
+footer a {
+    text-decoration: none;
+    position: relative;
+    color: var(--secondary-color);
+    display: inline-block;
+
+}
+
+nav a::after,
+footer a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+footer a:hover::after {
+    width: 100%;
 }
