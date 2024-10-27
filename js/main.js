@@ -10,7 +10,15 @@
             <p> Precio </p>   <a class="btn"><i></a>
         </div>
 </div> */
-const section = document.querySelector('#plants_expo')
+
+const botonCarro = document.querySelector('.button');
+const section = document.querySelector('#plants_expo');
+const carrito = document.querySelector('#carrito');
+let plantasEnCarrito = [];
+
+
+//Pintamos en la sección html general el catalogo  de plantas
+
 const printOnePlant = function (plant, domUbi) {
     const div = document.createElement('div')
     const figure = document.createElement('figure')
@@ -36,6 +44,13 @@ const printOnePlant = function (plant, domUbi) {
     a.href = '#'
     a.innerHTML = '<i class="fa-solid fa-cart-plus"></i>'
 
+
+    //Evento de añadir productos al carrito con el botón
+    a.addEventListener('click', (event) => {
+        event.preventDefault();
+        addToCart(plant);
+    });
+
     //Anexo de las partes
     figure.appendChild(img)
     divDesc.append(h3, desc)
@@ -50,3 +65,107 @@ const printAllPlants = function (plantList, domUbi) {
 }
 
 printAllPlants(plantas, section)
+
+
+
+
+botonCarro.addEventListener('click', showCarrito);
+
+function showCarrito() {
+    if (carrito.style.display === "block") {
+        carrito.style.display = "none"; // Oculta el carrito si ya está visible
+    } else {
+        carrito.style.display = "block"; // Muestra el carrito
+        printCarrito(plantasEnCarrito, carrito); // Actualiza el contenido del carrito
+    }
+}
+
+// Función para agregar plantas al carrito
+function addToCart(plant) {
+    // Verifica si la planta ya está en el carrito
+    const existingPlant = plantasEnCarrito.find(item => item.id === plant.id);
+    if (existingPlant) {
+        existingPlant.cantidad += 1; // Incrementa la cantidad
+    } else {
+        plantasEnCarrito.push({ ...plant, cantidad: 1 }); // Agrega la planta con cantidad inicial de 1
+    }
+    // Muestra el carrito después de agregar una planta
+    showCarrito();
+}
+
+
+/* 
+<section id="carrito">
+<!--   <div class="topcarro">
+      <h2>Artículos del carrito</h2>
+      <button class="cerrar">X</button>
+
+  </div>
+  <ul>
+      <li>
+          <h3>Título del producto</h3>
+          <div class="cantidad">
+              <p>Cantidad: </p>
+              <div>
+                  <button>+</button>
+                  <button>-</button>
+              </div>
+          </div>
+
+          <p>Precio: </p>
+          
+          
+      </li>
+
+  </ul>
+  <hr>
+  <p>Total: </p> -->
+
+</section> */
+
+//Funciones para pintar las plantas en el carrito
+function printOneCarrito(planta, dom) {
+    //Creación de todos los elementos
+    const ul = document.createElement('ul');
+    const li = document.createElement('li');
+    const h3 = document.createElement('h3');
+    const divCantidad = document.createElement('div');
+    const cantidad = document.createElement('p');
+    const divButton = document.createElement('div');
+    const incremento = document.createElement('button');
+    const decrimento = document.createElement('button');
+    const precio = document.createElement('p');
+    const hr = document.createElement('hr');
+    const total = document.createElement('p');
+
+    //creación de las clases
+    divCantidad.classList.add('cantidad');
+
+    //Pintado de contenido
+    h3.textContent = `${planta.nombre}`
+    cantidad.textContent = `Cantidad ${planta.cantidad}`
+    incremento.textContent = "+";
+    decrimento.textContent = "-";
+    precio.textContent = `Precio: ${planta.precio}`;
+    total.textContent = `Total: ${planta.total}`;
+
+    //Anexo de las partes
+    divButton.append(incremento, decrimento)
+    divCantidad.append(cantidad, divButton)
+    li.append(h3, divCantidad, precio)
+    ul.appendChild(li)
+    dom.append(ul, hr, total)
+
+}
+
+
+
+const printCarrito = function (plantList, dom) {
+    dom.innerHTML = "";
+    plantList.forEach(planta => printOneCarrito(planta, dom))
+}
+printCarrito(plantas, carrito)
+
+
+
+

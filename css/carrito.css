@@ -11,9 +11,7 @@ button {
     right: 0;
     width: 30%;
     background-color: rgba(11, 69, 9, 0.279);
-    /* opacity: 0;
-    display: none;
-    */
+    display: none;   
     padding: 20px;
     backdrop-filter: blur(10px);
     /* Efecto de desenfoque */
