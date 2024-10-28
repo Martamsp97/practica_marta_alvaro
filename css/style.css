@@ -53,8 +53,9 @@ a {
 header {
     /* background-color: var(--secondary-color); */
     position: sticky;
-
     width: 100%;
+    background-color: white;
+    mask-image: linear-gradient(black 80%, transparent);
 
     .menu {
 
@@ -138,11 +139,17 @@ h1 {
 }
 
 h5 {
+    padding-left: 2px;
+    letter-spacing: 1px;
     font-size: 2rem;
 
     span {
         color: var(--primary-color);
     }
+}
+
+span {
+    color: white;
 }
 
 footer {
