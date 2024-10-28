@@ -78,7 +78,7 @@ header {
         }
 
         nav {
-            width: 20%;
+            width: 40%;
             align-content: center;
 
             ul {
@@ -130,7 +130,7 @@ h1 {
     font-size: 6rem;
     padding-top: 15rem;
     margin: 2rem 0;
-    letter-spacing: 18px;
+    letter-spacing: 1.125rem;
 
 
     span {
@@ -139,8 +139,8 @@ h1 {
 }
 
 h5 {
-    padding-left: 2px;
-    letter-spacing: 1px;
+    padding-left: 0.125rem;
+    letter-spacing: 0.0625rem;
     font-size: 2rem;
 
     span {
@@ -179,9 +179,9 @@ footer a::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -4px;
+    bottom: -0.25rem;
     width: 0;
-    height: 2px;
+    height: 0.125rem;
     background-color: var(--secondary-color);
     transition: width 0.3s ease;
 }

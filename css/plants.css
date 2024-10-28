@@ -8,6 +8,25 @@
     margin: 0 auto;
     border-radius: 0.625rem;
     justify-content: space-between;
+
+}
+
+.nuestros_productos {
+    width: 100%;
+    margin-bottom: 2.5rem;
+    font-size: xx-large;
+    text-align: center;
+    font-family: var(--title-font);
+    padding: 1.25rem;
+
+    h3 {
+        color: black;
+
+        span {
+            color: var(--secondary-color);
+        }
+    }
+
 }
 
 
@@ -93,24 +112,24 @@
 .btnpag {
     display: flex;
     justify-content: center;
-    margin: 10px auto;
+    margin: 0.625rem auto;
     color: black;
 
     button {
         text-align: center;
         align-content: center;
-        width: 80px;
-        padding: 10px;
-        margin: 10px;
-        border-radius: 10px;
+        width: 5rem;
+        padding: 0.625rem;
+        margin: 0.625rem;
+        border-radius: 0.625rem;
         background-color: var(--secondary-color);
         transition: 0.5s;
-        border: 1px solid var(--secondary-color);
+        border: 0.0625rem solid var(--secondary-color);
 
         &:hover {
             background-color: white;
             color: var(--secondary-color);
-            border: 1px solid var(--secondary-color);
+            border: 0.0625rem solid var(--secondary-color);
         }
     }
 }

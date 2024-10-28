@@ -75,9 +75,27 @@ const printAllPlants = function (plantList, domUbi) {
     plantList.forEach(planta => printOnePlant(planta, domUbi))
 }
 
-printAllPlants(plantas, section)
+
+const paginacion = function (plantList, domUbi, page, cantPlants) {
+    domUbi.textContent = "";
+
+    const start = (page - 1) * cantPlants
+    const end = page * cantPlants
+    const paginado = plantList.slice(start, end)
+    printAllPlants(paginado, domUbi)
+
+}
+paginacion(plantas, section, 1, 16)
+
+const botonprev = document.querySelector('.prev_page');
+const bottonext = document.querySelector('.next_page');
+
+botonprev.addEventListener('click', () =>
+    paginacion(plantas, section, 1, 16)
+)
 
 
+bottonext.addEventListener('click', () => paginacion(plantas, section, 2, 16));
 
 
 /* botonCarro.addEventListener('click', showCarrito); */

@@ -5,6 +5,12 @@
 
     }
 
+    nav ul li a {
+        font-size: 1.5rem;
+
+    }
+
+
     #plants_expo {
 
         width: 100%;
@@ -61,7 +67,7 @@
 @media (max-width: 600px) {
 
     #plants_expo {
-        padding: 10px;
+        padding: 0.625rem;
     }
 
     .planta_container {
