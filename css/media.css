@@ -1,4 +1,4 @@
-@media (min-width: 1500px) and (max-width: 2000px) {
+@media (min-width: 1500px) {
     .container {
         padding: 1.25rem 1rem;
         max-width: 125rem;
@@ -25,11 +25,16 @@
     }
 }
 
-@media (min-width: 750px) and (max-width: 1000px) {
+@media (min-width: 601px) and (max-width: 1000px) {
 
     .planta_container {
 
         width: calc(50% - var(--gap));
+
+        figure {
+
+            height: 20rem;
+        }
     }
 
     header {
@@ -53,13 +58,18 @@
     }
 }
 
-@media (max-width: 749px) {
+@media (max-width: 600px) {
+
+    #plants_expo {
+        padding: 10px;
+    }
+
     .planta_container {
 
         width: 100%;
 
         figure {
-            height: 35rem;
+            height: 20rem;
 
         }
     }
@@ -69,6 +79,15 @@
             .menu {
                 nav {
                     width: 40%;
+
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        text-align: center;
+                        gap: 0.625rem;
+
+                    }
                 }
             }
         }

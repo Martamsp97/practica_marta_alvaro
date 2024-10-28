@@ -16,7 +16,18 @@ const section = document.querySelector('#plants_expo');
 const carrito = document.querySelector('#carrito');
 let plantasEnCarrito = [];
 
-
+// Función para agregar plantas al carrito
+/* function addToCart(plant) {
+    // Verifica si la planta ya está en el carrito
+    const existingPlant = plantasEnCarrito.find(item => item.id === plant.id);
+    if (existingPlant) {
+        existingPlant.cantidad += 1; // Incrementa la cantidad
+    } else {
+        plantasEnCarrito.push({ ...plant, cantidad: 1 }); // Agrega la planta con cantidad inicial de 1
+    }
+    // Muestra el carrito después de agregar una planta
+    showCarrito();
+} */
 //Pintamos en la sección html general el catalogo  de plantas
 
 const printOnePlant = function (plant, domUbi) {
@@ -46,10 +57,10 @@ const printOnePlant = function (plant, domUbi) {
 
 
     //Evento de añadir productos al carrito con el botón
-    a.addEventListener('click', (event) => {
-        event.preventDefault();
-        addToCart(plant);
-    });
+    /*  a.addEventListener('click', (event) => {
+         event.preventDefault();
+         addToCart(plant);
+     }); */
 
     //Anexo de las partes
     figure.appendChild(img)
@@ -69,9 +80,9 @@ printAllPlants(plantas, section)
 
 
 
-botonCarro.addEventListener('click', showCarrito);
+/* botonCarro.addEventListener('click', showCarrito); */
 
-function showCarrito() {
+/* function showCarrito() {
     if (carrito.style.display === "block") {
         carrito.style.display = "none"; // Oculta el carrito si ya está visible
     } else {
@@ -79,22 +90,11 @@ function showCarrito() {
         printCarrito(plantasEnCarrito, carrito); // Actualiza el contenido del carrito
     }
 }
-
-// Función para agregar plantas al carrito
-function addToCart(plant) {
-    // Verifica si la planta ya está en el carrito
-    const existingPlant = plantasEnCarrito.find(item => item.id === plant.id);
-    if (existingPlant) {
-        existingPlant.cantidad += 1; // Incrementa la cantidad
-    } else {
-        plantasEnCarrito.push({ ...plant, cantidad: 1 }); // Agrega la planta con cantidad inicial de 1
-    }
-    // Muestra el carrito después de agregar una planta
-    showCarrito();
-}
+ */
 
 
-/* 
+
+/*
 <section id="carrito">
 <!--   <div class="topcarro">
       <h2>Artículos del carrito</h2>
@@ -113,8 +113,8 @@ function addToCart(plant) {
           </div>
 
           <p>Precio: </p>
-          
-          
+
+
       </li>
 
   </ul>
@@ -124,7 +124,7 @@ function addToCart(plant) {
 </section> */
 
 //Funciones para pintar las plantas en el carrito
-function printOneCarrito(planta, dom) {
+/* function printOneCarrito(planta, dom) {
     //Creación de todos los elementos
     const ul = document.createElement('ul');
     const li = document.createElement('li');
@@ -169,3 +169,4 @@ printCarrito(plantas, carrito)
 
 
 
+ */
