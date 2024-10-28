@@ -111,7 +111,7 @@ header {
 
 .hero {
     background-image: url("../images/fondoraw.png");
-    background-size: cover;
+    background-size: fill;
     background-repeat: no-repeat;
     height: 60.25rem;
     mask-image: linear-gradient(black 80%, transparent);
