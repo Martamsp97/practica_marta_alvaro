@@ -70,6 +70,7 @@ header {
             a {
                 cursor: pointer;
 
+
                 figure {
                     width: 3.125rem;
                     height: 3.125rem
@@ -106,6 +107,7 @@ header {
             padding: 1rem;
             cursor: pointer;
             align-content: center;
+            font-size: x-large;
         }
     }
 }
