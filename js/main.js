@@ -1,6 +1,6 @@
 const section = document.querySelector('#plants_expo');
 
-//Pintamos en la sección html general el catalogo  de plantas
+//Pintamos en la seccion html general el catalogo  de plantas
 const printOnePlant = function (plant, domUbi) {
     const div = document.createElement('div');
     const figure = document.createElement('figure');
@@ -12,7 +12,7 @@ const printOnePlant = function (plant, domUbi) {
     const precio = document.createElement('p');
     const boton = document.createElement('button');
 
-    // Creación de clases
+    // Creacion de clases
     div.classList.add('planta_container');
     divDesc.classList.add('plant_desc');
     divPrecio.classList.add('precio_cart');
