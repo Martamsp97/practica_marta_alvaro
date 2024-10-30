@@ -8,17 +8,18 @@ let plantasEnCarrito = [];
 function agregarAlCarrito(plant) {
     // Verificar si existe la planta en el carrito
     const existingPlant = plantasEnCarrito.find(p => p.id === plant.id);
-    const planta = plantas.find(p => p.id === plant.id); // Buscar la planta en el array original para obtener el stock
+    const planta = plantas.find(planta => planta.id === plant.id);
 
+    // comprobar si existe la planta y añadir o no segun si existe
     if (existingPlant) {
-        // Si la cantidad en el carrito es menor que el stock, permite añadir
+
         if (existingPlant.cantidad < planta.stock) {
             existingPlant.cantidad += 1;
         } else {
             alert(`No podemos venderte mas ${planta.nombre}, no nos queda!! `);
         }
     } else {
-        // Si la planta no está en el carrito, añádela solo si el stock es mayor a 0
+
         if (planta.stock > 0) {
             plantasEnCarrito.push({ ...plant, cantidad: 1 });
         } else {
@@ -26,7 +27,7 @@ function agregarAlCarrito(plant) {
         }
     }
 
-    // Mostrar el carrito y actualizar su contenido
+
     carrito.style.display = "block";
     printCarrito();
 }
@@ -56,7 +57,7 @@ const printOnePlant = function (plant, domUbi) {
     precio.textContent = `${plant.precio} €`;
     boton.innerHTML = '<i class="fa-solid fa-cart-plus"></i>';
 
-    // Asociar el botón con la función de añadir al carrito
+
     boton.addEventListener('click', () => agregarAlCarrito(plant));
 
     // Anexo de las partes
@@ -104,7 +105,7 @@ function showCarrito() {
 botonCarro.addEventListener('click', showCarrito)
 
 
-// Función para incrementar la cantidad de una planta en el carrito
+// Función para sumar al carrito
 function incrementarCantidad(plantaId) {
     const plantaCarrito = plantasEnCarrito.find(planta => planta.id === plantaId);
     const plantaStock = plantas.find(planta => planta.id === plantaId);
@@ -119,7 +120,7 @@ function incrementarCantidad(plantaId) {
     }
 }
 
-// Función para decrementar la cantidad de una planta en el carrito
+// Función para restar la cantidad del carrito
 function decrementarCantidad(plantaId) {
     const planta = plantasEnCarrito.find(planta => planta.id === plantaId);
     if (planta) {
@@ -181,34 +182,48 @@ function calcularTotalCarrito() {
 function comprarPlanta() {
 
     plantasEnCarrito.forEach(plantaCarrito => {
-        const plantaCatalogo = plantas.find(p => p.id === plantaCarrito.id);
+        const plantaCatalogo = plantas.find(planta => planta.id === plantaCarrito.id);
         if (plantaCatalogo) {
             plantaCatalogo.stock -= plantaCarrito.cantidad;
         }
     });
 
-
     plantasEnCarrito = [];
     printCarrito();
     alert("Compra realizada con éxito. ¡Gracias por tu compra!");
 }
+function topCarrito() {
+    const div = document.createElement('div')
+    const h2 = document.createElement('h2')
+    const cerrar = document.createElement('button')
 
+    div.classList.add('top_carrito')
+
+    h2.textContent = 'Carrito'
+    cerrar.textContent = 'X'
+
+    div.append(h2, cerrar)
+    carrito.appendChild(div)
+
+}
 function interiorCarrito() {
-    const totalCarrito = document.createElement('p');
+    const total = document.createElement('p');
     const comprar = document.createElement('button');
+    const div = document.createElement('div')
 
     comprar.classList.add('comprar');
-    totalCarrito.classList.add('total-carrito');
+    div.classList.add('total_carrito');
 
     comprar.textContent = 'Comprar';
-    totalCarrito.textContent = `Total del carrito: ${calcularTotalCarrito().toFixed(2)} €`;
+    total.textContent = `Total del carrito: ${calcularTotalCarrito().toFixed(2)} €`;
 
     comprar.addEventListener('click', comprarPlanta);
-
-    carrito.append(totalCarrito, comprar);
+    div.append(total, comprar)
+    carrito.appendChild(div);
 }
 function printCarrito() {
     carrito.textContent = '';
+    topCarrito()
     plantasEnCarrito.forEach(planta => printOneCarrito(planta, carrito));
 
     if (plantasEnCarrito.length > 0) {

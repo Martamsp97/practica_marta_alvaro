@@ -11,6 +11,8 @@ button {
     right: 0;
     width: 30%;
     display: none;
+    padding: 10px;
+    font-size: 1.5rem;
     background-color: rgba(11, 69, 9, 0.279);
     padding: 20px;
     backdrop-filter: blur(10px);
@@ -44,7 +46,8 @@ button {
 
     ul {
         h3 {
-            font-weight: 700;
+            font-weight: 900;
+            margin-bottom: 20px;
         }
 
         .cantidad {
@@ -52,6 +55,7 @@ button {
             justify-content: space-between;
             align-content: center;
             align-items: center;
+
 
             div {
                 button {
@@ -61,4 +65,51 @@ button {
         }
     }
 
+}
+
+p {
+    margin: 15px;
+}
+
+.total_carrito {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+    p {
+        align-content: center;
+    }
+
+    .comprar {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        align-content: center;
+        padding: 10px;
+        width: auto;
+        height: 40px;
+        font-size: large;
+        font-weight: 600;
+        border-radius: 10px;
+        border: 1px solid var(--secondary-color);
+        transition: 1s;
+
+        &:hover {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            border-radius: 5px;
+        }
+    }
+
+}
+
+.top_carrito {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 10px;
+
+    h2 {
+        font-family: var(--title-font);
+        font-size: xx-large;
+    }
 }
