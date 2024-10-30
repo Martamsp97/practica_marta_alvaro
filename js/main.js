@@ -6,13 +6,27 @@ let plantasEnCarrito = [];
 
 // Agregar planta carrito
 function agregarAlCarrito(plant) {
-    // Verificar si existe la planta
+    // Verificar si existe la planta en el carrito
     const existingPlant = plantasEnCarrito.find(p => p.id === plant.id);
+    const planta = plantas.find(p => p.id === plant.id); // Buscar la planta en el array original para obtener el stock
+
     if (existingPlant) {
-        existingPlant.cantidad += 1;
+        // Si la cantidad en el carrito es menor que el stock, permite añadir
+        if (existingPlant.cantidad < planta.stock) {
+            existingPlant.cantidad += 1;
+        } else {
+            alert(`No podemos venderte mas ${planta.nombre}, no nos queda!! `);
+        }
     } else {
-        plantasEnCarrito.push({ ...plant, cantidad: 1 });
+        // Si la planta no está en el carrito, añádela solo si el stock es mayor a 0
+        if (planta.stock > 0) {
+            plantasEnCarrito.push({ ...plant, cantidad: 1 });
+        } else {
+            alert(`No hay stock disponible para ${planta.nombre}.`);
+        }
     }
+
+    // Mostrar el carrito y actualizar su contenido
     carrito.style.display = "block";
     printCarrito();
 }
@@ -79,11 +93,11 @@ botonprev.addEventListener('click', () => paginacion(plantas, section, 1, 16))
 bottonext.addEventListener('click', () => paginacion(plantas, section, 2, 16))
 
 function showCarrito() {
-    printCarrito(plantasEnCarrito, carrito); // Actualiza el contenido del carrito
+    printCarrito(plantasEnCarrito, carrito);
     if (carrito.style.display !== "block") {
         carrito.style.display = "block";
     } else {
-        carrito.style.display = "none"; // Hide the carrito if already visible
+        carrito.style.display = "none";
     }
 }
 
@@ -111,7 +125,7 @@ function decrementarCantidad(plantaId) {
     if (planta) {
         planta.cantidad -= 1;
         if (planta.cantidad === 0) {
-            // Eliminamos la planta del carrito si es 0 la cantidad
+
             plantasEnCarrito = plantasEnCarrito.filter(planta => planta.id !== plantaId);
         }
         printCarrito();
@@ -159,17 +173,27 @@ function printOneCarrito(planta, dom) {
     ul.appendChild(li);
     dom.append(ul, hr);
 }
-/* //Funcion de comprar
+
+function calcularTotalCarrito() {
+    return plantasEnCarrito.reduce((total, planta) => total + (planta.precio * planta.cantidad), 0);
+
+}
 function comprarPlanta() {
-    alert('Gracias por tu compra');
 
-} */
-// Funcion pintar carrito
-function printCarrito() {
-    carrito.textContent = '';
-    plantasEnCarrito.forEach(planta => printOneCarrito(planta, carrito));
+    plantasEnCarrito.forEach(plantaCarrito => {
+        const plantaCatalogo = plantas.find(p => p.id === plantaCarrito.id);
+        if (plantaCatalogo) {
+            plantaCatalogo.stock -= plantaCarrito.cantidad;
+        }
+    });
 
 
+    plantasEnCarrito = [];
+    printCarrito();
+    alert("Compra realizada con éxito. ¡Gracias por tu compra!");
+}
+
+function interiorCarrito() {
     const totalCarrito = document.createElement('p');
     const comprar = document.createElement('button');
 
@@ -179,8 +203,18 @@ function printCarrito() {
     comprar.textContent = 'Comprar';
     totalCarrito.textContent = `Total del carrito: ${calcularTotalCarrito().toFixed(2)} €`;
 
-    comprar.addEventListener('click', () => comprarPlanta());
+    comprar.addEventListener('click', comprarPlanta);
 
     carrito.append(totalCarrito, comprar);
+}
+function printCarrito() {
+    carrito.textContent = '';
+    plantasEnCarrito.forEach(planta => printOneCarrito(planta, carrito));
+
+    if (plantasEnCarrito.length > 0) {
+        interiorCarrito();
+    } else {
+        carrito.innerHTML += '<p> Estoy vacio! </p>'
+    }
 
 }
