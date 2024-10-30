@@ -191,6 +191,7 @@ function comprarPlanta() {
     plantasEnCarrito = [];
     printCarrito();
     alert("Compra realizada con éxito. ¡Gracias por tu compra!");
+    carrito.style.display = 'none'
 }
 function topCarrito() {
     const div = document.createElement('div')
