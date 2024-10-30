@@ -7,7 +7,7 @@ button {
 
 #carrito {
     position: absolute;
-    top: 130px;
+    top: 0px;
     right: 0;
     width: 30%;
     display: none;

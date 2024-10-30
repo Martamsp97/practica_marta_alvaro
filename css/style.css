@@ -26,7 +26,6 @@ img {
 }
 
 
-
 body {
     font-family: "DM Sans", sans-serif;
 }
@@ -44,6 +43,7 @@ a {
 }
 
 .container {
+    position: relative;
     padding: 1.25rem 3rem;
     max-width: 87.5rem;
     margin: 0 auto;
@@ -117,7 +117,7 @@ header {
     background-size: fill;
     background-repeat: no-repeat;
     height: 60.25rem;
-    mask-image: linear-gradient(black 80%, transparent);
+
     /* align-content: center; */
     width: 100vw;
     background-position: top;
