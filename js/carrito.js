@@ -94,10 +94,12 @@ function printOneCarrito(planta, dom) {
     h3.textContent = `${planta.nombre}`;
     cantidad.textContent = `Cantidad: ${planta.cantidad}`;
     incremento.textContent = "+";
+    incremento.dataset.id = planta.id
     decremento.textContent = "-";
     precio.textContent = `Precio: ${planta.precio} €`;
 
-    incremento.addEventListener('click', () => incrementarCantidad(planta.id));
+    incremento.addEventListener('click', incrementar)
+    //incremento.addEventListener('click', () => incrementarCantidad(planta.id));
     decremento.addEventListener('click', () => decrementarCantidad(planta.id));
 
     divButton.append(incremento, decremento);
@@ -105,6 +107,10 @@ function printOneCarrito(planta, dom) {
     li.append(h3, divCantidad, precio);
     ul.appendChild(li);
     dom.append(ul, hr);
+}
+function incrementar(event) {
+    incrementarCantidad(Number(event.target.dataset.id))
+
 }
 
 function interiorCarrito() {
