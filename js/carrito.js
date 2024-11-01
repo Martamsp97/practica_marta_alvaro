@@ -100,6 +100,7 @@ function printOneCarrito(planta, dom) {
 
     incremento.addEventListener('click', incrementar)
     //incremento.addEventListener('click', () => incrementarCantidad(planta.id));
+   
     decremento.addEventListener('click', () => decrementarCantidad(planta.id));
 
     divButton.append(incremento, decremento);
